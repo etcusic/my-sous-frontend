@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/my-sous-frontend/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/my-sous-frontend/static/js/main.cdd51809.chunk.js",
+    "main.js.map": "/my-sous-frontend/static/js/main.cdd51809.chunk.js.map",
+    "runtime-main.js": "/my-sous-frontend/static/js/runtime-main.f34e913f.js",
+    "runtime-main.js.map": "/my-sous-frontend/static/js/runtime-main.f34e913f.js.map",
+    "static/js/2.965d308b.chunk.js": "/my-sous-frontend/static/js/2.965d308b.chunk.js",
+    "static/js/2.965d308b.chunk.js.map": "/my-sous-frontend/static/js/2.965d308b.chunk.js.map",
+    "static/js/3.86d7acc7.chunk.js": "/my-sous-frontend/static/js/3.86d7acc7.chunk.js",
+    "static/js/3.86d7acc7.chunk.js.map": "/my-sous-frontend/static/js/3.86d7acc7.chunk.js.map",
+    "index.html": "/my-sous-frontend/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/my-sous-frontend/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.965d308b.chunk.js.LICENSE.txt": "/my-sous-frontend/static/js/2.965d308b.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/my-sous-frontend/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f34e913f.js",
+    "static/js/2.965d308b.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.cdd51809.chunk.js"
+  ]
+}
