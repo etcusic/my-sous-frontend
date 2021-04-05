@@ -1,3 +1,3 @@
 const DEV_URL = "http://localhost:3001/"
-const PROD_URL = "http://etcusic.github.io/my-sous-frontend"
+const PROD_URL = "http://etcusic.github.io/my-sous-backend"
 export const API_ROOT = process.env.NODE_ENV === 'development' ? DEV_URL : PROD_URL
