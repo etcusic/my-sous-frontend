@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux'
-// import { initializeAppState } from '../actions/index.js'
 
 export class NavBar extends Component {
-
-    // componentDidMount(){
-    //     this.props.initializeAppState()
-    // }
 
   render() {
     return (
@@ -26,12 +20,4 @@ export class NavBar extends Component {
   }
 }
 
-const mapStateToProps = state => {
-//     return {
-//         userName: state.user.name
-//     }
-}
-  
-// export default connect(mapStateToProps, { initializeAppState })(NavBar) 
-
-export default connect(mapStateToProps)(NavBar) 
+export default NavBar

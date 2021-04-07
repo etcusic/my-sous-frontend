@@ -8,15 +8,8 @@ import PantryPage from './pages/PantryPage';
 import RecipesPage from './pages/RecipesPage';
 import GroceryListPage from './pages/GroceryListPage';
 import ManageSupplyInfoPage from './pages/ManageSupplyInfoPage';
-import { initializeApp } from './actions/initializeApp';
 
 class App extends Component {
-
-  componentDidMount(){
-    // will need to adjust this when I incorporate user sign in
-    // should put this in a different container with routes and navabar separate from App to account for user sign in
-    initializeApp(1)
-  }
 
   render(){
     return (
