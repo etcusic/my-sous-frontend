@@ -3,22 +3,11 @@ import { connect } from 'react-redux'
 
 class MenusPage extends Component {
 
-    // constructor(){
-    //     super()
-    //     this.state = {
-    //         view: 
-    //     }
-    // }
-
-    // changeView = (component) => {
-    //     this.setState({ view: component })
-    // }
-
     render() {
         return (
         <div>
             <h1>MENUS PAGE</h1>
-            {/* { this.state.view } */}
+            { console.log(this.props.menus) }
         </div>
         );
     }
@@ -26,10 +15,9 @@ class MenusPage extends Component {
 }
 
 const mapStateToProps = state => {
-//     return {
-//         userName: state.user.name,
-        // menus: state.menus
-//     }
+    return {
+        menus: state.menus
+    }
 }
   
 export default connect(mapStateToProps)(MenusPage)

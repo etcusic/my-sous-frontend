@@ -3,22 +3,13 @@ import { connect } from 'react-redux'
 
 class ManageSupplyInfoPage extends Component {
 
-    // constructor(){
-    //     super()
-    //     this.state = {
-    //         view: 
-    //     }
-    // }
-
-    // changeView = (component) => {
-    //     this.setState({ view: component })
-    // }
-
     render() {
         return (
         <div>
             <h1>MANAGE SUPPLY INFO PAGE</h1>
-            {/* { this.state.view } */}
+            <ul>
+                { Object.keys(this.props.supplies).map(key => <li>{ this.props.supplies[key].name }</li>) }
+            </ul>
         </div>
         );
     }
@@ -26,10 +17,9 @@ class ManageSupplyInfoPage extends Component {
 }
 
 const mapStateToProps = state => {
-//     return {
-//         userName: state.user.name,
-        // supplies: state.supplies
-//     }
+    return {
+        supplies: state.supplies
+    }
 }
   
 export default connect(mapStateToProps)(ManageSupplyInfoPage)

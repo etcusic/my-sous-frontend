@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-// import RecipesTable from '../components/RecipesTable'
 
 class RecipesPage extends Component {
 
@@ -8,7 +7,9 @@ class RecipesPage extends Component {
         return (
         <div>
             <h1>RECIPES PAGE</h1>
-            {/* <RecipesTable /> */}
+            <ul>
+                { this.props.recipes.map(recipe => <li>{ recipe.name } - { recipe.servings } servings</li>)}
+            </ul>
         </div>
         );
     }
@@ -16,9 +17,9 @@ class RecipesPage extends Component {
 }
 
 const mapStateToProps = state => {
-//     return {
-//         recipes: state.recipes
-//     }
+    return {
+        recipes: state.recipes
+    }
 }
   
 export default connect(mapStateToProps)(RecipesPage)
