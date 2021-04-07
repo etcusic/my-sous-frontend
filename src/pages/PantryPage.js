@@ -7,7 +7,7 @@ class PantryPage extends Component {
     render() {
         return (
             <div>
-                <h1>PANTRY</h1>
+                <h1>PANTRY PAGE</h1>
                 {/* <PantryTable /> */}
             </div>
         );

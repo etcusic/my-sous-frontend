@@ -7,7 +7,7 @@ class RecipesPage extends Component {
     render() {
         return (
         <div>
-            <h1>RECIPES</h1>
+            <h1>RECIPES PAGE</h1>
             {/* <RecipesTable /> */}
         </div>
         );

@@ -1,4 +1,4 @@
-const groceryListReducer = (state = [], action) => {
+const groceryListReducer = (state = {}, action) => {
     switch(action.type){
         case "LOAD_GROCERY_LISTS": 
             let groceryLists = action.payload

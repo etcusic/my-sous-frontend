@@ -4,9 +4,10 @@ import pantry from './pantryReducer'
 import recipes from './recipesReducer'
 import menus from './menusReducer'
 import groceryLists from './groceryListsReducer'
-import ingredients from './ingredientsReducer'
+import supplies from './suppliesReducer'
+import stores from './storesReducer'
 
 export default combineReducers({
-    user, pantry, recipes, menus, groceryLists, ingredients
+    user, supplies, pantry, recipes, menus, groceryLists, stores
 })
 
