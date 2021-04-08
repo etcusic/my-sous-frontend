@@ -3,6 +3,29 @@ import { connect } from 'react-redux'
 
 class ManageSupplyInfoPage extends Component {
 
+    constructor(){
+        super()
+        this.state = {
+          view: <ManageInfoButtons changeView={ this.changeView } />
+        }
+      }
+    
+      changeView = (arg) => {
+        switch(arg){
+            case "supply categories":
+                return this.setState({  })
+            case "manage supplies": 
+                return this.setState({  })
+            case "store supplies": 
+                return this.setState({  })
+            case "manage stores": 
+                return this.setState({  })
+            default: 
+                return this.setState({ view: <ManageInfoButtons changeView={ this.changeView } /> })
+        }
+           
+      }
+
     render() {
         return (
         <div>

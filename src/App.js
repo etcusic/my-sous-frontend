@@ -13,6 +13,10 @@ class App extends Component {
     }
   }
 
+  initiateApp = () => {
+    this.setState({ view: <Application /> })
+  }
+
   render(){
     return (
       <div className="App">
