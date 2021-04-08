@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import UnderConstruction from '../components/UnderConstruction';
 
 class ProfilePage extends Component {
 
@@ -7,7 +8,7 @@ class ProfilePage extends Component {
         return (
         <div>
             <h1>PROFILE PAGE</h1>
-            <h2>{ this.props.userName }</h2>
+            <UnderConstruction />
         </div>
         );
     }

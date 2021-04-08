@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import UnderConstruction from '../components/UnderConstruction';
 
 class MenusPage extends Component {
 
@@ -7,7 +8,7 @@ class MenusPage extends Component {
         return (
         <div>
             <h1>MENUS PAGE</h1>
-            { console.log(this.props.menus) }
+            <UnderConstruction />
         </div>
         );
     }

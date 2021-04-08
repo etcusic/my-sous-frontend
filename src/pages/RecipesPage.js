@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import UnderConstruction from '../components/UnderConstruction';
 
 class RecipesPage extends Component {
 
@@ -7,9 +8,7 @@ class RecipesPage extends Component {
         return (
         <div>
             <h1>RECIPES PAGE</h1>
-            <ul>
-                { this.props.recipes.map(recipe => <li>{ recipe.name } - { recipe.servings } servings</li>)}
-            </ul>
+            <UnderConstruction />
         </div>
         );
     }

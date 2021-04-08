@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import UnderConstruction from '../components/UnderConstruction';
 
 class PantryPage extends Component {
 
@@ -23,9 +24,7 @@ class PantryPage extends Component {
         return (
             <div>
                 <h1>PANTRY PAGE</h1>
-                <ul>
-                    { this.state.ingredients.map(ing => <li>{ ing.name } - { ing.quantity }</li>) }
-                </ul>
+                <UnderConstruction />
             </div>
         );
     }
