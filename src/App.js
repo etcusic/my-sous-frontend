@@ -8,8 +8,8 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      view: <Application />
-      // view: <GreetingPage />
+      // view: <Application />
+      view: <GreetingPage />
     }
   }
 

@@ -1,14 +1,41 @@
 import React, { Component } from 'react';
-import UnderConstruction from '../appComponents/UnderConstruction';
+import Welcome from '../greetingComponents/Welcome'
+import SignIn from '../greetingComponents/SignIn'
+import SignUp from '../greetingComponents/SignUp'
 
 class GreetingPage extends Component {
+
+    constructor(){
+        super()
+        this.state = {
+          view: <Welcome />
+        }
+    }
+
+    showWelcome = () => {
+        this.setState({ view: <Welcome /> })
+    }
+
+    showSignIn = () => {
+        this.setState({ view: <SignIn /> })
+    }
+
+    showSignUp = () => {
+        this.setState({ view: <SignUp /> })
+    }
 
     render() {
         return (
         <div>
-            <h1>GREETING PAGE</h1>
-            <h2>User Sign Up/In & Greeting</h2>
-            <UnderConstruction />
+            <h1>GREETING CONTAINER</h1>
+            <h2>
+                <button onClick={ this.showWelcome }>Welcome</button>
+                ||
+                <button onClick={ this.showSignIn }>Sign In</button>
+                ||
+                <button onClick={ this.showSignUp }>Sign Up</button>
+            </h2>
+            { this.state.view }
         </div>
         )
     }

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import UnderConstruction from '../appComponents/UnderConstruction';
+import UnderConstruction from '../greetingComponents/UnderConstruction';
 
-class GroceryListPage extends Component {
+class RecipesPage extends Component {
 
     render() {
         return (
         <div>
-            <h1>GROCERY LIST PAGE</h1>
+            <h1>RECIPES PAGE</h1>
             <UnderConstruction />
         </div>
         );
@@ -17,8 +17,8 @@ class GroceryListPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        groceryLists: state.groceryLists
+        recipes: state.recipes
     }
 }
   
-export default connect(mapStateToProps)(GroceryListPage)
+export default connect(mapStateToProps)(RecipesPage)

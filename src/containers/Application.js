@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { initializeApp } from '../actions/initializeApp.js';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from '../appComponents/NavBar'
-import ProfilePage from '../pages/ProfilePage';
-import MenusPage from '../pages/MenusPage';
-import PantryPage from '../pages/PantryPage';
-import RecipesPage from '../pages/RecipesPage';
-import GroceryListPage from '../pages/GroceryListPage';
-import ManageSupplyInfoPage from '../pages/ManageSupplyInfoPage';
+import ProfilePage from '../appRoutePages/ProfilePage';
+import MenusPage from '../appRoutePages/MenusPage';
+import PantryPage from '../appRoutePages/PantryPage';
+import RecipesPage from '../appRoutePages/RecipesPage';
+import GroceryListPage from '../appRoutePages/GroceryListPage';
+import ManageSupplyInfoPage from '../appRoutePages/ManageSupplyInfoPage';
 
 class Application extends Component {
 

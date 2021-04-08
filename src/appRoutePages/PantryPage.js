@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import UnderConstruction from '../appComponents/UnderConstruction';
+import UnderConstruction from '../greetingComponents/UnderConstruction';
 
 class PantryPage extends Component {
 
