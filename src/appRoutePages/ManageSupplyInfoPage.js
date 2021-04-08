@@ -6,7 +6,7 @@ class ManageSupplyInfoPage extends Component {
     render() {
         return (
         <div>
-            <h1>MANAGE SUPPLY INFO PAGE</h1>
+            <h1>MANAGE SUPPLY & STORE INFO</h1>
             <ul>
                 { Object.keys(this.props.supplies).map(key => <li>{ this.props.supplies[key].name }</li>) }
             </ul>

@@ -12,7 +12,7 @@ export class NavBar extends Component {
           <NavLink to="/pantry" className="navlinks">- Pantry -</NavLink>
           <NavLink to="/recipes" className="navlinks">- Recipes -</NavLink>
           <NavLink to="/grocery_list" className="navlinks">- Grocery List -</NavLink>
-          <NavLink to="/supply_info" className="navlinks">- Supply Info --</NavLink>
+          <NavLink to="/supply_info" className="navlinks">- Manage Supplies & Stores --</NavLink>
         </div>
       </nav>
     )
