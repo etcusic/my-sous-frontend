@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { initializeApp } from '../actions/initializeApp.js';
 import NavBar from '../appComponents/NavBar'
 import ProfilePage from '../pages/ProfilePage';
 import MenusPage from '../pages/MenusPage';
@@ -10,12 +12,18 @@ import ManageSupplyInfoPage from '../pages/ManageSupplyInfoPage';
 
 class Application extends Component {
 
+    componentDidMount(){
+        // initialize app takes user Id as an argument 
+        // needs to be abstracted when sign in is developed
+        this.props.initializeApp(1)
+    }
+    
   render(){
     return (
       <div className="App">
         <Router>
           <NavBar />
-            <div>
+            <main>
               
               <Switch>
                 <Route exact path="/" component={ ProfilePage } />
@@ -26,12 +34,17 @@ class Application extends Component {
                 <Route exact path="/supply_info" component={ ManageSupplyInfoPage } />
               </Switch>
 
-            </div>
+            </main>
         </Router>
       </div>
     );
-  }
-  
+  } 
 }
 
-export default Application
+const mapStateToProps = state => {
+    return {
+        userName: state.user.name
+    }
+  }
+  
+  export default connect(mapStateToProps, { initializeApp })(Application) 
