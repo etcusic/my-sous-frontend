@@ -28,7 +28,7 @@ class ManageSupplyInfoPage extends Component {
             case "manage supplies": 
                 return this.setState({ view: <ManageSupplies /> })
             case "store supplies": 
-                return this.setState({ view: <ViewSuppliesByStore /> })
+                return this.setState({ view: <ViewSuppliesByStore supplies={ this.props.supplies } stores={ this.props.stores } /> })
             case "manage stores": 
                 return this.setState({ view: <ManageStores /> })
             default: 

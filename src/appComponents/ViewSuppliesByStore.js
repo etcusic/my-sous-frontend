@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
+import StoreSelector from './StoreSelector.js'
 
 class ViewSuppliesByStore extends Component {
 
     constructor(){
         super()
         this.state = {
-            suppliesByCategory: []
+            suppliesByStore: []
         }
     }
     
     componentDidMount(){
-        this.setState({ suppliesByCategory: [...this.props.supplies] })
+        this.setState({ suppliesByStore: [...this.props.supplies] })
     }
 
-    changeCategory = (category) => {
-        let supplies = category === "all" ? this.props.supplies : [...this.props.supplies.filter(sup => sup.sub_category === category)]
-        this.setState({ suppliesByCategory: supplies })
+    changeStore = (storeId) => {
+        // let supplies = storeId == 0 ? this.props.supplies : this.props.stores.find(store.id == storeId).supplies
+        // this.setState({ suppliesByStore: supplies })
     }
    
     render() {
         return (
         <div>
             <h2>View Supplies By Store</h2>
-            <CategorySelector changeCategory={ this.changeCategory } />
-            <SuppliesTable showSupplies={ this.state.suppliesByCategory } />
+            <StoreSelector stores={ this.props.stores } changeStore={ this.changeStore } />
+            {/* <SuppliesTable showSupplies={ this.state.suppliesByStore } /> */}
         </div>
         );
     }
