@@ -23,14 +23,13 @@ class ManageSupplyInfoPage extends Component {
     changeView = (arg) => {
         switch(arg){
             case "supply categories":
-                return this.setState({ view: <ViewSuppliesByCategory supplies={ this.props.supplies } /> 
-                                    })
+                return this.setState({ view: <ViewSuppliesByCategory supplies={ this.props.supplies } />                         })
             case "manage supplies": 
                 return this.setState({ view: <ManageSupplies /> })
             case "store supplies": 
                 return this.setState({ view: <ViewSuppliesByStore supplies={ this.props.supplies } stores={ this.props.stores } /> })
             case "manage stores": 
-                return this.setState({ view: <ManageStores /> })
+                return this.setState({ view: <ManageStores stores={ this.props.stores } /> })
             default: 
                 return this.setState({ view: <Placeholder /> })
         }      

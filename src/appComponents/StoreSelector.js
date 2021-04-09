@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StoreSelector = ({ stores, changeStore }) => {
+const StoreSelector = ({ stores, selectStore }) => {
 
     const storeOptions = () => {
         return stores.map(store => <option value={ store.id }>{ store.name }</option>)
@@ -8,7 +8,7 @@ const StoreSelector = ({ stores, changeStore }) => {
 
     return (
         <div>
-           <select onChange={ event => changeStore(event.target.value) }>
+           <select onChange={ event => selectStore(event.target.value) }>
             <option value="0">---</option>
             { storeOptions() }
            </select>
