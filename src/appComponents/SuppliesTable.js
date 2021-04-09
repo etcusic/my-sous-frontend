@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SupplyTableRow from './SupplyTableRow'
 
-const SuppliesTable = () => {
- 
+const SuppliesTable = ({ showSupplies }) => {
+
         return (
         <table>
             <thead>
-                <tr>
+                <tr key="0">
                     <th>Name: </th> 
                     <th>Category: </th> 
                     <th>Unit: </th> 
                     <th>Latest Cost Per Unit: </th> 
                 </tr>
             </thead>
-
             <tbody>
-                { this.props.suppliesByCategory.map( (sup, index) => <SupplyTableRow keyId={ index + 1 } supply={ sup } />) }
+                { showSupplies.map( (sup, index) => <SupplyTableRow keyId={ index + 1 } supply={ sup } />) }
             </tbody>
         </table>
         );

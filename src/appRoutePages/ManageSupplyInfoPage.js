@@ -12,27 +12,23 @@ class ManageSupplyInfoPage extends Component {
     constructor(){
         super()
         this.state = {
-          view: <Placeholder />,
-          suppliesByCategory: [],
-          suppliesByStore: [],
-          currentSupply: {},
-          currentStore: {}
+          view: <Placeholder />
         }
     }
     
     componentDidMount(){
-        console.log(this.props.supplies)
         this.setState({ suppliesByCategory: [...this.props.supplies] })
     }
 
     changeView = (arg) => {
         switch(arg){
             case "supply categories":
-                return this.setState({ view: <ViewSuppliesByCategory suppliesByCategory={ this.state.suppliesByCategory } /> })
+                return this.setState({ view: <ViewSuppliesByCategory supplies={ this.props.supplies } /> 
+                                    })
             case "manage supplies": 
-                return this.setState({ view: <ViewSuppliesByStore /> })
-            case "store supplies": 
                 return this.setState({ view: <ManageSupplies /> })
+            case "store supplies": 
+                return this.setState({ view: <ViewSuppliesByStore /> })
             case "manage stores": 
                 return this.setState({ view: <ManageStores /> })
             default: 
@@ -40,11 +36,6 @@ class ManageSupplyInfoPage extends Component {
         }      
     }
 
-    changeCategory = (category) => {
-        let supplies = [...this.props.supplies.all.map(sup => sup.sub_category === category)]
-        this.setState({ suppliesByCategory: supplies })
-    }
-   
     render() {
         return (
         <div>
