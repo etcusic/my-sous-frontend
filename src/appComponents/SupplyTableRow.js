@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SupplyTableRow = ({ supply }) => {
+const SupplyTableRow = ({ supply, keyId }) => {
     return (
-        <tr>
+        <tr key={ keyId }>
            <td>{ supply.name }</td> 
            <td>{ supply.sub_category }</td> 
            <td>{ supply.unit }</td> 

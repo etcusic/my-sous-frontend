@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import SupplyTableRow from './SupplyTableRow'
 
-class SuppliesTable extends Component {
-
-    constructor(){
-        super()
-        this.state = {
-            currentSupply: {}
-        }
-    }
+const SuppliesTable = () => {
  
-    render() {
         return (
         <table>
             <thead>
@@ -23,11 +15,10 @@ class SuppliesTable extends Component {
             </thead>
 
             <tbody>
-                { this.props.suppliesByCategory.map( sup => <SupplyTableRow supply={ sup } />) }
+                { this.props.suppliesByCategory.map( (sup, index) => <SupplyTableRow keyId={ index + 1 } supply={ sup } />) }
             </tbody>
         </table>
         );
-    }
 
 }
   
