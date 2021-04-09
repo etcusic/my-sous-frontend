@@ -10,13 +10,14 @@ class ManageStoreForm extends Component {
     }
     
     componentDidMount(){
-
+        console.log(this.props.currentStore)
     }
    
     render() {
         return (
         <div>
             <h2>Manage Store Form</h2>
+            { this.props.currentStore.name }
         </div>
         );
     }
