@@ -7,13 +7,19 @@ class SuppliesTable extends Component {
     constructor(){
         super()
         this.state = {
-            supplies: []
+            suppliesByCategory: [],
+            suppliesByStore: [],
+            currentSupply: {},
+            currentStore: {}, 
         }
     }
 
     componentDidMount(){
-        console.log(this.props.supplies)
-        this.setState({ supplies: this.props.supplies })
+        this.setState({ suppliesByCategory: this.props.supplies.all })
+    }
+
+    changeCategory(category){
+        this.setState({ suppliesByCategory: [...this.props.supplies.all.map(sup => sup.sub_category === category)] })
     }
     
     render() {
@@ -29,7 +35,7 @@ class SuppliesTable extends Component {
             </thead>
 
             <tbody>
-                { this.state.supplies.map( sup => <SupplyTableRow supply={ sup } />) }
+                { this.state.suppliesByCategory.map( sup => <SupplyTableRow supply={ sup } />) }
             </tbody>
         </table>
         );
