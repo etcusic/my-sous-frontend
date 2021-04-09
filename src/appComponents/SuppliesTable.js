@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 import SupplyTableRow from './SupplyTableRow'
 
 class SuppliesTable extends Component {
@@ -7,21 +6,10 @@ class SuppliesTable extends Component {
     constructor(){
         super()
         this.state = {
-            suppliesByCategory: [],
-            suppliesByStore: [],
-            currentSupply: {},
-            currentStore: {}, 
+            currentSupply: {}
         }
     }
-
-    componentDidMount(){
-        this.setState({ suppliesByCategory: this.props.supplies.all })
-    }
-
-    changeCategory(category){
-        this.setState({ suppliesByCategory: [...this.props.supplies.all.map(sup => sup.sub_category === category)] })
-    }
-    
+ 
     render() {
         return (
         <table>
@@ -35,18 +23,12 @@ class SuppliesTable extends Component {
             </thead>
 
             <tbody>
-                { this.state.suppliesByCategory.map( sup => <SupplyTableRow supply={ sup } />) }
+                { this.props.suppliesByCategory.map( sup => <SupplyTableRow supply={ sup } />) }
             </tbody>
         </table>
         );
     }
 
 }
-
-const mapStateToProps = state => {
-    return {
-        supplies: state.supplies
-    }
-}
   
-export default connect(mapStateToProps)(SuppliesTable)
+export default SuppliesTable
