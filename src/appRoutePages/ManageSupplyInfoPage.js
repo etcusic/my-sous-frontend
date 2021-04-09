@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import ManageInfoButtons from '../appComponents/ManageInfoButtons'
+import SuppliesTable from '../appComponents/SuppliesTable'
 
 class ManageSupplyInfoPage extends Component {
 
@@ -13,7 +15,7 @@ class ManageSupplyInfoPage extends Component {
       changeView = (arg) => {
         switch(arg){
             case "supply categories":
-                return this.setState({  })
+                return this.setState({ view: <SuppliesTable /> })
             case "manage supplies": 
                 return this.setState({  })
             case "store supplies": 
@@ -30,9 +32,7 @@ class ManageSupplyInfoPage extends Component {
         return (
         <div>
             <h1>MANAGE SUPPLY & STORE INFO</h1>
-            <ul>
-                { Object.keys(this.props.supplies).map(key => <li>{ this.props.supplies[key].name }</li>) }
-            </ul>
+            { this.state.view }
         </div>
         );
     }

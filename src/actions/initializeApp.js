@@ -5,7 +5,6 @@ export const initializeApp = (userId) => {
         return fetch(`${ API_ROOT }users/${userId}`)
         .then(resp =>  resp.json())
         .then(data => {
-            console.log(data)
             dispatch({ type: "LOAD_USER", payload: data.user })
             dispatch({ type: "LOAD_SUPPLIES", payload: data.supplies })
             dispatch({ type: "LOAD_PANTRY", payload: data.pantry })
