@@ -18,11 +18,11 @@ const StoreSuppliesTable = ({ storeSupplies, editSupplyButton, removeSupplyButto
 
                 <tbody>
                     { storeSupplies.map(supply => {
-                        <SupplyRow 
-                            supply={ supply } 
-                            editSupplyButton={ editSupplyButton } 
-                            removeSupplyButton={ removeSupplyButton }
-                        />
+                        return <SupplyRow 
+                                    supply={ supply } 
+                                    editSupplyButton={ editSupplyButton } 
+                                    removeSupplyButton={ removeSupplyButton }
+                                />
                     }) }
                 </tbody>
             </table>

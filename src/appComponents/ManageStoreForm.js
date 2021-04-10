@@ -22,10 +22,13 @@ class ManageStoreForm extends Component {
     }
     
     componentDidMount(){
-        let store = this.assembleSupplies(this.props.currentStore, this.props.supplies)
+        // remove this once serializers are applied on backend
+        // the ID attribute may be duplicated in this function
+        let supplies = assembleSupplies(this.props.currentStore.supplies, this.props.supplies)
+        console.log(supplies)
         this.setState({
             storeName: this.props.currentStore.name,
-            storeSupplies: store.supplies
+            storeSupplies: supplies
         })
     }
 
