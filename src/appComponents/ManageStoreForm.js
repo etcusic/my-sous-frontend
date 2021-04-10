@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import AddSupplyInput from './AddSupplyInput'
 import StoreSuppliesTable from './StoreSuppliesTable'
 import EditedSuppliesTable from './EditedSuppliesTable'
-import SupplyRow from './SupplyRow'
 import StoreNameInput from './StoreNameInput';
 import Placeholder from './Placeholder';
 import { assembleSupplies } from '../helperFunctions/assembleSupplies'
@@ -46,6 +45,14 @@ class ManageStoreForm extends Component {
             this.setState({ newSupply: <Placeholder /> })
         } 
     } 
+
+    editSupply = (supply) => {
+        console.log(supply)
+    }
+
+    removeSupply = (supply) => {
+        console.log(supply)
+    }
    
     render() {
         return (
@@ -57,7 +64,11 @@ class ManageStoreForm extends Component {
                 { this.state.newSupply }
             </div>
             <EditedSuppliesTable editedSupplies={ this.state.editedSupplies } />
-            <StoreSuppliesTable storeSupplies={ this.state.storeSupplies } />
+            <StoreSuppliesTable 
+                storeSupplies={ this.state.storeSupplies } 
+                editSupply={ this.editSupply } 
+                removeSupply={ this.removeSupply } 
+            />
         </div>
         );
     }

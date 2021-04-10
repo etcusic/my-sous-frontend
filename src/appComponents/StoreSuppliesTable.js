@@ -1,7 +1,7 @@
 import React from 'react';
 import SupplyRow from './SupplyRow'
 
-const StoreSuppliesTable = ({ storeSupplies, editSupplyButton, removeSupplyButton }) => {
+const StoreSuppliesTable = ({ storeSupplies, editSupply, removeSupply }) => {
     return (
         <div>
             <table>
@@ -20,8 +20,8 @@ const StoreSuppliesTable = ({ storeSupplies, editSupplyButton, removeSupplyButto
                     { storeSupplies.map(supply => {
                         return <SupplyRow 
                                     supply={ supply } 
-                                    editSupplyButton={ editSupplyButton } 
-                                    removeSupplyButton={ removeSupplyButton }
+                                    editSupply={ editSupply } 
+                                    removeSupply={ removeSupply }
                                 />
                     }) }
                 </tbody>
