@@ -34,14 +34,27 @@ class ManageStoreForm extends Component {
 
     addSupply = () => {
         let currentSupply = Object.assign({}, this.state.currentSupply)
-        let supplies = [...this.state.storeSupplies, currentSupply]
+        let supplies = [...this.state.editedSupplies, currentSupply]
         this.setState({ 
             currentSupply: {name: "", cost_per_unit: 0},
-            storeSupplies: supplies 
+            editedSupplies: supplies 
         })
     } 
 
-    editSupply = (supply) => {
+    editEditedSupply = (supply) => {
+        let supplies = [...this.state.editedSupplies.filter(sup => sup.name !== supply.name)]
+        this.setState({ 
+            currentSupply: supply,
+            editedSupplies: supplies
+         })
+    }
+
+    removeEditedSupply = (supply) => {
+        let supplies = [...this.state.editedSupplies.filter(sup => sup.name !== supply.name)]
+        this.setState({ editedSupplies: supplies })
+    }
+  
+    editStoreSupply = (supply) => {
         let supplies = [...this.state.storeSupplies.filter(sup => sup.name !== supply.name)]
         this.setState({ 
             currentSupply: supply,
@@ -49,17 +62,17 @@ class ManageStoreForm extends Component {
          })
     }
 
+    removeStoreSupply = (supply) => {
+        let supplies = [...this.state.storeSupplies.filter(sup => sup.name !== supply.name)]
+        this.setState({ storeSupplies: supplies })
+    }
+   
     changeSupply = (attribute, key) => {
         let supply = Object.assign({}, this.state.currentSupply)
         supply[key] = attribute
         this.setState({ currentSupply: supply })
     }
 
-    removeSupply = (supply) => {
-        let supplies = [...this.state.storeSupplies.filter(sup => sup.name !== supply.name)]
-        this.setState({ storeSupplies: supplies })
-    }
-   
     render() {
         return (
         <div>
@@ -80,8 +93,8 @@ class ManageStoreForm extends Component {
                 <h3>New & Edited Supplies</h3>
                 <StoreSuppliesTable 
                     storeSupplies={ this.state.editedSupplies } 
-                    editSupply={ this.editSupply } 
-                    removeSupply={ this.removeSupply } 
+                    editSupply={ this.editEditedSupply } 
+                    removeSupply={ this.removeEditedSupply } 
                 />
             </div>
 
@@ -89,8 +102,8 @@ class ManageStoreForm extends Component {
                 <h3>{ this.state.storeName } Supplies</h3>
                 <StoreSuppliesTable 
                     storeSupplies={ this.state.storeSupplies } 
-                    editSupply={ this.editSupply } 
-                    removeSupply={ this.removeSupply } 
+                    editSupply={ this.editStoreSupply } 
+                    removeSupply={ this.removeStoreSupply } 
                 />
             </div>
             
