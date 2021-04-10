@@ -4,6 +4,7 @@ import AddSupplyInput from './AddSupplyInput'
 import StoreSuppliesTable from './StoreSuppliesTable'
 import StoreNameInput from './StoreNameInput';
 import { assembleSupplies } from '../helperFunctions/assembleSupplies'
+import { submitStoreSupplyInfo } from '../actions/submitStoreSupplyInfo.js'
 
 class ManageStoreForm extends Component {
 
@@ -103,6 +104,9 @@ class ManageStoreForm extends Component {
                 />
             </div>
             
+            <h2>
+                <button onClick={ () => this.props.submitStoreSupplyInfo(this.state.editedSupplies) }>Submit Changes</button>
+            </h2>
         </div>
         );
     }
@@ -115,4 +119,4 @@ const mapStateToProps = state => {
     }
 }
   
-export default connect(mapStateToProps)(ManageStoreForm)
+export default connect(mapStateToProps, { submitStoreSupplyInfo })(ManageStoreForm)
