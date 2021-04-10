@@ -21,11 +21,12 @@ class ManageStores extends Component {
     
     componentDidMount(){
         // console.log(this.props.supplies)
-        this.setState({ view: <StoreSelector stores={ this.props.stores} selectStore={ this.selectStore } />})
+        this.setState({ 
+            view: <StoreSelector stores={ this.props.stores} selectStore={ this.selectStore } />
+        })
     }
 
     selectStore = (storeId) => {
-        console.log(storeId)
         let store = this.props.stores.find(stor => stor.id == storeId)
         this.setState({
             view: <ManageStoreForm currentStore={ store} />,

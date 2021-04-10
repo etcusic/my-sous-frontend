@@ -1,10 +1,15 @@
 import React from 'react';
 
-const SupplyRow = () => {
+const SupplyRow = ({ supply, editSupplyButton, removeSupplyButton }) => {
     return (
-        <div>
-        
-        </div>
+        <tr>
+            <td></td>
+            <td>{ supply.name }</td>
+            <td>{ supply.sub_category }</td>
+            <td>{ supply.unit }</td>
+            <td>{ supply.cost_per_unit }</td>
+            <td></td>
+        </tr>
     );
 }
   

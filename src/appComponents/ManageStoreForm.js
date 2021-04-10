@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import AddSupplyInput from './AddSupplyInput'
 import StoreSuppliesTable from './StoreSuppliesTable'
 import EditedSuppliesTable from './EditedSuppliesTable'
 import SupplyRow from './SupplyRow'
 import StoreNameInput from './StoreNameInput';
 import Placeholder from './Placeholder';
+import { assembleSupplies } from '../helperFunctions/assembleSupplies'
 
 class ManageStoreForm extends Component {
 
@@ -20,10 +22,10 @@ class ManageStoreForm extends Component {
     }
     
     componentDidMount(){
-        console.log(this.props.currentStore)
+        let store = this.assembleSupplies(this.props.currentStore, this.props.supplies)
         this.setState({
             storeName: this.props.currentStore.name,
-            storeSupplies: this.props.currentStore.supplies
+            storeSupplies: store.supplies
         })
     }
 
@@ -51,12 +53,18 @@ class ManageStoreForm extends Component {
                 <button onClick={ this.addSupply }>Add Supply</button>
                 { this.state.newSupply }
             </div>
-            <EditedSuppliesTable />
-            <StoreSuppliesTable />
+            <EditedSuppliesTable editedSupplies={ this.state.editedSupplies } />
+            <StoreSuppliesTable storeSupplies={ this.state.storeSupplies } />
         </div>
         );
     }
 
 }
+
+const mapStateToProps = state => {
+    return {
+        supplies: state.supplies
+    }
+}
   
-export default ManageStoreForm 
+export default connect(mapStateToProps)(ManageStoreForm)
