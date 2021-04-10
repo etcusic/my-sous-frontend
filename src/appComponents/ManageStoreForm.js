@@ -28,10 +28,6 @@ class ManageStoreForm extends Component {
         })
     }
 
-    changeName = (input) => {
-        this.setState({ storeName: input })
-    }
-
     addSupply = () => {
         let currentSupply = Object.assign({}, this.state.currentSupply)
         let supplies = [...this.state.editedSupplies, currentSupply]
@@ -79,7 +75,7 @@ class ManageStoreForm extends Component {
 
             <h2>Manage Store Form</h2>
             
-            <StoreNameInput storeName={ this.state.storeName } changeName={ this.changeName } />
+            <h3>{ this.state.storeName }</h3> 
             
             <div id="new-supply">
                 <AddSupplyInput 
