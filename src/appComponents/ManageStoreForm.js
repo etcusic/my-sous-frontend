@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import AddSupplyInput from './AddSupplyInput'
 import StoreSuppliesTable from './StoreSuppliesTable'
-import EditedSuppliesTable from './EditedSuppliesTable'
 import StoreNameInput from './StoreNameInput';
-import Placeholder from './Placeholder';
 import { assembleSupplies } from '../helperFunctions/assembleSupplies'
 
 class ManageStoreForm extends Component {
@@ -15,8 +13,7 @@ class ManageStoreForm extends Component {
             storeName: "",
             storeSupplies: [],
             editedSupplies: [],
-            currentSupply: {},
-            newSupply: <Placeholder />
+            currentSupply: {name: "", cost_per_unit: 0}
         }
     }
     
@@ -36,39 +33,67 @@ class ManageStoreForm extends Component {
     }
 
     addSupply = () => {
-        if (this.state.newSupply === <Placeholder />){
-            let emptySupply = {
-                name: ""
-            }
-            this.setState({ newSupply: <AddSupplyInput newSupply={ emptySupply } /> })
-        } else {
-            this.setState({ newSupply: <Placeholder /> })
-        } 
+        let currentSupply = Object.assign({}, this.state.currentSupply)
+        let supplies = [...this.state.storeSupplies, currentSupply]
+        this.setState({ 
+            currentSupply: {name: "", cost_per_unit: 0},
+            storeSupplies: supplies 
+        })
     } 
 
     editSupply = (supply) => {
-        console.log(supply)
+        let supplies = [...this.state.storeSupplies.filter(sup => sup.name !== supply.name)]
+        this.setState({ 
+            currentSupply: supply,
+            storeSupplies: supplies
+         })
+    }
+
+    changeSupply = (attribute, key) => {
+        let supply = Object.assign({}, this.state.currentSupply)
+        supply[key] = attribute
+        this.setState({ currentSupply: supply })
     }
 
     removeSupply = (supply) => {
-        console.log(supply)
+        let supplies = [...this.state.storeSupplies.filter(sup => sup.name !== supply.name)]
+        this.setState({ storeSupplies: supplies })
     }
    
     render() {
         return (
         <div>
+
             <h2>Manage Store Form</h2>
+            
             <StoreNameInput storeName={ this.state.storeName } changeName={ this.changeName } />
+            
             <div id="new-supply">
-                <button onClick={ this.addSupply }>Add Supply</button>
-                { this.state.newSupply }
+                <AddSupplyInput 
+                    currentSupply={ this.state.currentSupply } 
+                    changeSupply={ this.changeSupply } 
+                    addSupply={ this.addSupply }
+                />
             </div>
-            <EditedSuppliesTable editedSupplies={ this.state.editedSupplies } />
-            <StoreSuppliesTable 
-                storeSupplies={ this.state.storeSupplies } 
-                editSupply={ this.editSupply } 
-                removeSupply={ this.removeSupply } 
-            />
+            
+            <div>
+                <h3>New & Edited Supplies</h3>
+                <StoreSuppliesTable 
+                    storeSupplies={ this.state.editedSupplies } 
+                    editSupply={ this.editSupply } 
+                    removeSupply={ this.removeSupply } 
+                />
+            </div>
+
+            <div>
+                <h3>{ this.state.storeName } Supplies</h3>
+                <StoreSuppliesTable 
+                    storeSupplies={ this.state.storeSupplies } 
+                    editSupply={ this.editSupply } 
+                    removeSupply={ this.removeSupply } 
+                />
+            </div>
+            
         </div>
         );
     }

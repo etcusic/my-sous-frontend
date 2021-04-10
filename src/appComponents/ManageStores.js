@@ -4,7 +4,6 @@ import StoreSelector from './StoreSelector'
 import ManageStoreForm from './ManageStoreForm'
 import AddSupplyInput from './AddSupplyInput'
 import StoreSuppliesTable from './StoreSuppliesTable'
-import EditedSuppliesTable from './EditedSuppliesTable'
 import SupplyRow from './SupplyRow'
 
 class ManageStores extends Component {
