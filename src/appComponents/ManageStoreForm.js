@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import AddSupplyInput from './AddSupplyInput'
 import StoreSuppliesTable from './StoreSuppliesTable'
-import StoreNameInput from './StoreNameInput';
 import { assembleSupplies } from '../helperFunctions/assembleSupplies'
 import { submitStoreSupplyInfo } from '../actions/submitStoreSupplyInfo.js'
 
@@ -14,7 +13,8 @@ class ManageStoreForm extends Component {
             storeName: "",
             storeSupplies: [],
             editedSupplies: [],
-            currentSupply: {name: "", cost_per_unit: 0}
+            currentSupply: {name: "", cost_per_unit: 0},
+            filteredSupplies: []
         }
     }
     
@@ -22,10 +22,10 @@ class ManageStoreForm extends Component {
         // remove this once serializers are applied on backend
         // the ID attribute may be duplicated in this function
         let supplies = assembleSupplies(this.props.currentStore.supplies, this.props.supplies)
-        console.log(supplies)
         this.setState({
             storeName: this.props.currentStore.name,
-            storeSupplies: supplies
+            storeSupplies: supplies,
+            filteredSupplies: this.props.supplies
         })
     }
 
@@ -70,6 +70,13 @@ class ManageStoreForm extends Component {
         this.setState({ currentSupply: supply })
     }
 
+    changeCategory = (category) => {
+        let supplies = this.props.supplies.filter(supply => supply.sub_category === category)
+        this.setState({
+            filteredSupplies: supplies
+        })
+    }
+
     render() {
         return (
         <div>
@@ -83,6 +90,8 @@ class ManageStoreForm extends Component {
                     currentSupply={ this.state.currentSupply } 
                     changeSupply={ this.changeSupply } 
                     addSupply={ this.addSupply }
+                    filteredSupplies={ this.state.filteredSupplies }
+                    changeCategory={ this.changeCategory }
                 />
             </div>
             
@@ -105,7 +114,7 @@ class ManageStoreForm extends Component {
             </div>
             
             <h2>
-                <button onClick={ () => this.props.submitStoreSupplyInfo(this.state.editedSupplies) }>Submit Changes</button>
+                <button onClick={ () => submitStoreSupplyInfo(this.state.editedSupplies) }>Submit Changes</button>
             </h2>
         </div>
         );
