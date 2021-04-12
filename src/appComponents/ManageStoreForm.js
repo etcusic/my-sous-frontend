@@ -13,8 +13,9 @@ class ManageStoreForm extends Component {
             storeName: "",
             storeSupplies: [],
             editedSupplies: [],
-            currentSupply: {name: "", cost_per_unit: 0},
-            filteredSupplies: []
+            currentSupply: {id: 0, cost_per_unit: 0},
+            filteredSupplies: [],
+            currentCategory: "all"
         }
     }
     
@@ -33,8 +34,10 @@ class ManageStoreForm extends Component {
         let currentSupply = Object.assign({}, this.state.currentSupply)
         let supplies = [...this.state.editedSupplies, currentSupply]
         this.setState({ 
-            currentSupply: {name: "", cost_per_unit: 0},
-            editedSupplies: supplies 
+            currentSupply: {id: 0, name: "", cost_per_unit: 0},
+            editedSupplies: supplies,
+            filteredSupplies: this.props.supplies,
+            currentCategory: "all"
         })
     } 
 
@@ -64,16 +67,23 @@ class ManageStoreForm extends Component {
         this.setState({ storeSupplies: supplies })
     }
    
-    changeSupply = (attribute, key) => {
+    changeSupply = (supplyId) => {
+        let supply = this.props.supplies.find(sup => sup.id == supplyId)
+        supply.cost_per_unit = 0
+        this.setState({ currentSupply: supply })
+    }
+
+    changeCostPerUnit = (input) => {
         let supply = Object.assign({}, this.state.currentSupply)
-        supply[key] = attribute
+        supply.cost_per_unit = input
         this.setState({ currentSupply: supply })
     }
 
     changeCategory = (category) => {
         let supplies = this.props.supplies.filter(supply => supply.sub_category === category)
         this.setState({
-            filteredSupplies: supplies
+            filteredSupplies: supplies,
+            currentCategory: category
         })
     }
 
@@ -88,10 +98,12 @@ class ManageStoreForm extends Component {
             <div id="new-supply">
                 <AddSupplyInput 
                     currentSupply={ this.state.currentSupply } 
+                    changeCategory={ this.changeCategory }
                     changeSupply={ this.changeSupply } 
+                    changeCostPerUnit={ this.changeCostPerUnit }
                     addSupply={ this.addSupply }
                     filteredSupplies={ this.state.filteredSupplies }
-                    changeCategory={ this.changeCategory }
+                    currentCategory={ this.state.currentCategory }
                 />
             </div>
             
