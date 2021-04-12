@@ -4,6 +4,7 @@ import AddSupplyInput from './AddSupplyInput'
 import StoreSuppliesTable from './StoreSuppliesTable'
 import { assembleSupplies } from '../helperFunctions/assembleSupplies'
 import { submitStoreSupplyInfo } from '../actions/submitStoreSupplyInfo.js'
+import ChangeStoreName from './ChangeStoreName';
 
 class ManageStoreForm extends Component {
 
@@ -28,6 +29,10 @@ class ManageStoreForm extends Component {
             storeSupplies: supplies,
             filteredSupplies: this.props.supplies
         })
+    }
+
+    changeStoreName = (input) => {
+        this.setState({ storeName: input })
     }
 
     addSupply = () => {
@@ -93,7 +98,13 @@ class ManageStoreForm extends Component {
 
             <h2>Manage Store Form</h2>
             
-            <h3>{ this.state.storeName }</h3> 
+            <div>
+                <ChangeStoreName 
+                    storeName={ this.state.storeName }
+                    changeStoreName={ this.changeStoreName }
+                />
+            </div>
+            
             
             <div id="new-supply">
                 <AddSupplyInput 
