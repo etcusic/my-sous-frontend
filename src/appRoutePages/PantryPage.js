@@ -34,7 +34,7 @@ class PantryPage extends Component {
 const mapStateToProps = state => {
     return {
         pantry: state.pantry,
-        supplies: state.supplies
+        supplies: state.supplies.array
     }
 }
   

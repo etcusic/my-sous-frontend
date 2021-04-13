@@ -1,4 +1,4 @@
-const suppliesReducer = (state = [], action) => {
+const suppliesReducer = (state = {array: [], dictionary: {}}, action) => {
     switch(action.type){
         case "LOAD_SUPPLIES": 
             let supplies = action.payload

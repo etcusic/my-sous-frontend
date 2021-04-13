@@ -8,7 +8,7 @@ import MenusPage from '../appRoutePages/MenusPage';
 import PantryPage from '../appRoutePages/PantryPage';
 import RecipesPage from '../appRoutePages/RecipesPage';
 import GroceryListPage from '../appRoutePages/GroceryListPage';
-import ManageSupplyInfoPage from '../appRoutePages/ManageSupplyInfoPage';
+import ManageSuppliesAndStoresPage from '../ManageSuppliesAndStoresPage/ManageSuppliesAndStoresContainer.js';
 
 class Application extends Component {
 
@@ -31,7 +31,7 @@ class Application extends Component {
                 <Route exact path="/pantry" component={ PantryPage } />
                 <Route exact path="/recipes" component={ RecipesPage } />
                 <Route exact path="/grocery_list" component={ GroceryListPage } />
-                <Route exact path="/supply_info" component={ ManageSupplyInfoPage } />
+                <Route exact path="/supply_info" component={ ManageSuppliesAndStoresPage } />
               </Switch>
 
             </main>

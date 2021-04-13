@@ -50,7 +50,7 @@ class ManageSupplyInfoPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        supplies: state.supplies,
+        supplies: state.supplies.array,
         stores: state.stores
     }
 }

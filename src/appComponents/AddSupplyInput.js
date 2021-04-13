@@ -4,35 +4,20 @@ const AddSupplyInput = ({ currentSupply, changeCategory, changeSupply, changeCos
 
     const categoryOptions = () => {
         const categories = ["all", "proteins", "dried goods", "produce", "dairy", "frozen goods", "condiments", "spices"]
-        return categories.map((cat, i) => {
-            if (cat === currentCategory){
-                return <option selected keyId={ `category-${i + 1}` } value={ cat }>{ cat }</option>
-            } else {
-                return <option keyId={ `category-${i + 1}` } value={ cat }>{ cat }</option>
-            }}) 
-    }
-
-    const ingredientOptions = () => {
-        return filteredSupplies.map(supply => {
-            if (currentSupply.name === supply.name){
-                return <option selected value={ supply.id }>{ supply.name }</option>    
-            } else {
-                return <option value={ supply.id }>{ supply.name }</option>
-            }
-        })
+        return categories.map((cat, i) => <option keyId={ `category-${i + 1}` } value={ cat }>{ cat }</option>)
     }
 
     return (
         <div>
             <label>Category: </label>
-            <select onChange={ event => changeCategory(event.target.value) }>
+            <select value={ currentSupply.sub_category } onChange={ event => changeCategory(event.target.value) }>
                 { categoryOptions() }
             </select>
 
             <label>Supply: </label>
-            <select onChange={ event => changeSupply(event.target.value)}>
+            <select value={ currentSupply.id } onChange={ event => changeSupply(event.target.value)}>
                 <option value="0">---</option>
-                { ingredientOptions() }
+                { filteredSupplies.map(supply => <option value={ supply.id }>{ supply.name }</option>) }
             </select>
 
             <label>Cost Per Unit: </label>
