@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-
+import CreateSupplyForm from './CreateSupplyForm'
 class CreateSupplies extends Component {
 
     constructor(){
@@ -19,7 +19,7 @@ class CreateSupplies extends Component {
         return (
         <div>
             <h2>Create Supplies</h2>
-
+            <CreateSupplyForm /> 
         </div>
         );
     }
@@ -29,8 +29,7 @@ class CreateSupplies extends Component {
 const mapStateToProps = state => {
     return {
         suppliesArray: state.supplies.array,
-        suppliesDictionary: state.supplies.dictionary,
-        stores: state.stores
+        suppliesDictionary: state.supplies.dictionary
     }
 }
   
