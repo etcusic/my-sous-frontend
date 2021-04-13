@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Placeholder from '../globalComponents/Placeholder.js'
+import Placeholder from '../globalComponents/Placeholder'
 import ManageInfoButtons from './ManageInfoButtons'
-// import ViewSuppliesByCategory from '../appComponents/ViewSuppliesByCategory'
-// import ViewSuppliesByStore from '../appComponents/ViewSuppliesByStore'
-// import ManageSupplies from '../appComponents/ManageSupplies'
-// import ManageStores from '../appComponents/ManageStores'
+import CreateSupplies from './CreateSupplies'
+import EditSupplies from './EditSupplies'
+import CreateStore from './CreateStore'
+import EditStore from './EditStore'
 
 class ManageSuppliesAndStoresContainer extends Component {
 
@@ -23,13 +23,13 @@ class ManageSuppliesAndStoresContainer extends Component {
 
     changeView = (arg) => {
         switch(arg){
-            case "supply categories":
+            case "create supplies":
                 return this.setState({ view: <CreateSupplies /> })
-            case "manage supplies": 
+            case "edit supplies": 
                 return this.setState({ view: <EditSupplies /> })
-            case "store supplies": 
+            case "create store": 
                 return this.setState({ view: <CreateStore /> })
-            case "manage stores": 
+            case "edit store": 
                 return this.setState({ view: <EditStore /> })
             default: 
                 return this.setState({ view: <Placeholder /> })
