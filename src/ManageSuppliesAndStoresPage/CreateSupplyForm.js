@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { createSupplies } from '../actions/createSupplies'
 
 class CreateSupplyForm extends Component {
@@ -7,7 +8,7 @@ class CreateSupplyForm extends Component {
       this.state = {
           name: "",
           category: "food",
-          subCategory: "---",
+          sub_category: "---",
           unit: ""
         };
   
@@ -15,7 +16,7 @@ class CreateSupplyForm extends Component {
         this.changeCategory = this.changeCategory.bind(this);
         this.changeSubCategory = this.changeSubCategory.bind(this);
         this.changeUnit = this.changeUnit.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // createSupplies = createSupplies.bind(this);
     }
   
     changeName(event) {
@@ -27,21 +28,16 @@ class CreateSupplyForm extends Component {
       }
   
       changeSubCategory(event) {
-        this.setState({subCategory: event.target.value});
+        this.setState({sub_category: event.target.value});
       }
   
       changeUnit(event) {
         this.setState({unit: event.target.value});
       }
-        
-    handleSubmit(event) {
-        event.preventDefault();
-        console.log(this.state)
-    }
   
     render() {
       return (
-        <form onSubmit={event => createSupplies(event, this.props.userId, this.state)}>
+        <form onSubmit={event => this.props.createSupplies(event, this.props.userId, this.state)}>
           <label>
             Name:
             <input type="text" value={this.state.name} onChange={this.changeName} />
@@ -56,7 +52,7 @@ class CreateSupplyForm extends Component {
           
           <label>
             Sub Category:
-            <select value={this.state.subCategory} onChange={this.changeSubCategory}>
+            <select value={this.state.sub_category} onChange={this.changeSubCategory}>
                 <option value="---">---</option>
                 <option value="produce">produce</option>
                 <option value="proteins">proteins</option>
@@ -79,4 +75,10 @@ class CreateSupplyForm extends Component {
     }
 }
   
-export default CreateSupplyForm
+const mapStateToProps = state => {
+    return {
+        userId: state.user.id
+    }
+  }
+ 
+export default connect(mapStateToProps, { createSupplies })(CreateSupplyForm)

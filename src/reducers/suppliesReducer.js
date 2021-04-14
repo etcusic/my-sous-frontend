@@ -9,7 +9,8 @@ const suppliesReducer = (state = {array: [], dictionary: {}}, action) => {
                 dictionary: Object.assign({}, state.dictionary)
             }
             newState.array.push(action.payload)
-            dictionary[action.payload.id] = action.payload
+            newState.dictionary[action.payload.id] = action.payload
+            console.log(newState)
             return newState
 
         default:

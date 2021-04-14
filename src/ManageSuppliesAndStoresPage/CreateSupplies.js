@@ -19,7 +19,7 @@ class CreateSupplies extends Component {
         return (
         <div>
             <h2>Create Supplies</h2>
-            <CreateSupplyForm userId={ this.props.userId } /> 
+            <CreateSupplyForm /> 
         </div>
         );
     }
