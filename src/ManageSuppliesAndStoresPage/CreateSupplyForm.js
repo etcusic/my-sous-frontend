@@ -16,7 +16,7 @@ class CreateSupplyForm extends Component {
         this.changeCategory = this.changeCategory.bind(this);
         this.changeSubCategory = this.changeSubCategory.bind(this);
         this.changeUnit = this.changeUnit.bind(this);
-        // createSupplies = createSupplies.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
   
     changeName(event) {
@@ -34,10 +34,27 @@ class CreateSupplyForm extends Component {
       changeUnit(event) {
         this.setState({unit: event.target.value});
       }
+
+      handleSubmit = event => {
+        event.preventDefault()
+        let supply = Object.assign({}, this.state)
+        supply["user_id"] = this.props.userId
+        this.props.createSupplies(supply)
+        this.resetForm()
+      }
+
+      resetForm = () => {
+        this.setState({
+            name: "",
+            category: "food",
+            sub_category: "---",
+            unit: ""
+        })
+      }
   
     render() {
       return (
-        <form onSubmit={event => this.props.createSupplies(event, this.props.userId, this.state)}>
+        <form onSubmit={event => this.handleSubmit(event)}>
           <label>
             Name:
             <input type="text" value={this.state.name} onChange={this.changeName} />

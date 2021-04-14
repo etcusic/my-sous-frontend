@@ -1,9 +1,6 @@
 import { API_ROOT } from '../apiRoot'
 
-export const createSupplies = (event, userId, supply) => {
-    event.preventDefault()
-    supply["user_id"] = userId
-    console.log(supply)
+export const createSupplies = (supply) => {
     const configObject = {
         method: 'POST',
         headers: {
@@ -16,18 +13,7 @@ export const createSupplies = (event, userId, supply) => {
     return dispatch => {
         return fetch(`${API_ROOT}/users/${userId}/supplies`, configObject)
         .then(response => response.json())
-        .then(data => {
-            dispatch({ type: "ADD_SUPPLY", payload: data })
-        })
+        .then(data => dispatch({ type: "ADD_SUPPLY", payload: data }))
     }
-
-    // return(dispatch) => {
-    //     console.log(supply)
-    //     return fetch(`${API_ROOT}/users/${userId}/supplies`, configObject)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         dispatch({ type: "ADD_SUPPLY", payload: data })
-    //     })
-    // }
     
 }
