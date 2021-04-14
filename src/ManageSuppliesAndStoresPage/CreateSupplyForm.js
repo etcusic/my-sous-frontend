@@ -59,7 +59,11 @@ class CreateSupplyForm extends Component {
                 <option value="---">---</option>
                 <option value="produce">produce</option>
                 <option value="proteins">proteins</option>
+                <option value="dairy">dairy</option>
+                <option value="dried goods">dried goods</option>
                 <option value="frozen goods">frozen goods</option>
+                <option value="condiments">condiments</option>
+                <option value="spices">spices</option>
             </select>
           </label>
 
