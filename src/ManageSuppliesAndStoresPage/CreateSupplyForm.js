@@ -41,7 +41,7 @@ class CreateSupplyForm extends Component {
   
     render() {
       return (
-        <form onSubmit={event => createSupplies(event, this.state)}>
+        <form onSubmit={event => createSupplies(event, this.props.userId, this.state)}>
           <label>
             Name:
             <input type="text" value={this.state.name} onChange={this.changeName} />
