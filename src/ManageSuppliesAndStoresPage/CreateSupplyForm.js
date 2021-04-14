@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { createSupplies } from '../actions/createSupplies'
 
 class CreateSupplyForm extends Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class CreateSupplyForm extends Component {
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={event => createSupplies(event, this.state)}>
           <label>
             Name:
             <input type="text" value={this.state.name} onChange={this.changeName} />
@@ -72,7 +73,7 @@ class CreateSupplyForm extends Component {
             <input type="text" value={this.state.unit} onChange={this.changeUnit} />
           </label>
 
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Add Supply" />
         </form>
       );
     }
