@@ -11,7 +11,7 @@ export const createSupplies = (supply) => {
     }
 
     return dispatch => {
-        return fetch(`${API_ROOT}/users/${userId}/supplies`, configObject)
+        return fetch(`${API_ROOT}/users/${supply.user_id}/supplies`, configObject)
         .then(response => response.json())
         .then(data => dispatch({ type: "ADD_SUPPLY", payload: data }))
     }

@@ -50,8 +50,7 @@ class ManageSuppliesAndStoresContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        suppliesArray: state.supplies.array,
-        suppliesDictionary: state.supplies.dictionary,
+        supplies: state.supplies,
         stores: state.stores
     }
 }

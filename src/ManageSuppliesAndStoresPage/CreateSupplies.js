@@ -28,9 +28,7 @@ class CreateSupplies extends Component {
 
 const mapStateToProps = state => {
     return {
-        userId: state.user.id,
-        suppliesArray: state.supplies.array,
-        suppliesDictionary: state.supplies.dictionary
+        userId: state.user.id
     }
 }
   
