@@ -15,7 +15,9 @@ class EditSupplies extends Component {
     }
     
     componentDidMount(){
+        this.props.supplies.forEach(supply => this.supplyCategories.indexOf(supply.sub_category) < 0 ? this.supplyCategories.push(supply.sub_category) : false)
         this.setState({ suppliesByCategory: this.createSuppliesByCategory() })
+        console.log(this.supplyCategories)
     }
 
     createSuppliesByCategory(){
@@ -30,18 +32,28 @@ class EditSupplies extends Component {
         return suppliesByCategory
     }
 
+    supplyCategories = []
+
     render() {
         return (
         <div>
             <h2>Edit Supplies</h2>
             
-            <select>
-
-            </select>
-
-            <select>
-
-            </select>
+            <label>
+                Sub Categories: 
+                <select>
+                    <option value="all">all</option>
+                    { this.supplyCategories.map(cat => <option value={cat.name}>{cat}</option>) }
+                </select>
+            </label>
+           
+            <label>
+                Supplies: 
+                <select>
+                    <option>---</option>
+                    { this.state.suppliesByCategory[this.state.currentCategory].map(supply => <option value={supply}>{supply.name}</option>) }
+                </select>
+            </label>
 
             { this.state.supplyInput }
         </div>
