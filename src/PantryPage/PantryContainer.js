@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import UnderConstruction from '../greetingComponents/UnderConstruction';
 
-class PantryPage extends Component {
+class PantryContainer extends Component {
 
     constructor(){
         super()
@@ -38,4 +38,4 @@ const mapStateToProps = state => {
     }
 }
   
-export default connect(mapStateToProps)(PantryPage)
+export default connect(mapStateToProps)(PantryContainer)

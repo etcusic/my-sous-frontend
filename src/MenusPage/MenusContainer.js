@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import UnderConstruction from '../greetingComponents/UnderConstruction';
 
-class ProfilePage extends Component {
+class MenusContainer extends Component {
 
     render() {
         return (
         <div>
-            <h1>PROFILE PAGE</h1>
+            <h1>MENUS PAGE</h1>
             <UnderConstruction />
         </div>
         );
@@ -17,8 +17,8 @@ class ProfilePage extends Component {
 
 const mapStateToProps = state => {
     return {
-        userName: state.user.name
+        menus: state.menus
     }
 }
   
-export default connect(mapStateToProps)(ProfilePage)
+export default connect(mapStateToProps)(MenusContainer)
