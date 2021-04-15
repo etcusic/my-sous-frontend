@@ -6,7 +6,7 @@ class CreateSupplies extends Component {
     constructor(){
         super()
         this.state = {
-
+            supply: this.emptySupply
         }
     }
     
@@ -15,11 +15,18 @@ class CreateSupplies extends Component {
 
     }
 
+    emptySupply = {
+        name: "",
+        category: "food",
+        sub_category: "---",         
+        unit: ""
+    }
+
     render() {
         return (
         <div>
             <h2>Create Supplies</h2>
-            <CreateSupplyForm /> 
+            <CreateSupplyForm supply={ this.state.supply } /> 
         </div>
         );
     }
