@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Welcome from '../greetingComponents/Welcome'
-import SignIn from '../greetingComponents/SignIn'
-import SignUp from '../greetingComponents/SignUp'
+import Welcome from '../GreetingPage/Welcome'
+import SignIn from '../GreetingPage/SignIn'
+import SignUp from '../GreetingPage/SignUp'
 
 class GreetingPage extends Component {
 
