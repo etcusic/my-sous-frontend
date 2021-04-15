@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { initializeApp } from '../actions/initializeApp.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from '../appComponents/NavBar'
-import ProfilePage from '../appRoutePages/ProfilePage';
-import MenusPage from '../appRoutePages/MenusPage';
-import PantryPage from '../appRoutePages/PantryPage';
-import RecipesPage from '../appRoutePages/RecipesPage';
-import GroceryListPage from '../appRoutePages/GroceryListPage';
-import ManageSuppliesAndStoresPage from '../ManageSuppliesAndStoresPage/ManageSuppliesAndStoresContainer.js';
+import ProfileContainer from '../ProfilePage/ProfileContainer';
+import MenusContainer from '../MenusPage/MenusContainer';
+import PantryContainer from '../PantryPage/PantryContainer';
+import RecipesContainer from '../RecipesPage/RecipesContainer';
+import GroceryListContainer from '../GroceryListPage/GroceryListContainer';
+import ManageSuppliesAndStoresContainer from '../ManageSuppliesAndStoresPage/ManageSuppliesAndStoresContainer.js';
 
 class Application extends Component {
 
@@ -26,12 +26,12 @@ class Application extends Component {
             <main>
               
               <Switch>
-                <Route exact path="/" component={ ProfilePage } />
-                <Route exact path="/menus" component={ MenusPage } />
-                <Route exact path="/pantry" component={ PantryPage } />
-                <Route exact path="/recipes" component={ RecipesPage } />
-                <Route exact path="/grocery_list" component={ GroceryListPage } />
-                <Route exact path="/supply_info" component={ ManageSuppliesAndStoresPage } />
+                <Route exact path="/" component={ ProfileContainer } />
+                <Route exact path="/menus" component={ MenusContainer } />
+                <Route exact path="/pantry" component={ PantryContainer } />
+                <Route exact path="/recipes" component={ RecipesContainer } />
+                <Route exact path="/grocery_list" component={ GroceryListContainer } />
+                <Route exact path="/supply_info" component={ ManageSuppliesAndStoresContainer } />
               </Switch>
 
             </main>
