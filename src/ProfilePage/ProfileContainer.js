@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import UnderConstruction from '../greetingComponents/UnderConstruction';
+import UnderConstruction from '../globalComponents/UnderConstruction';
 
 class ProfileContainer extends Component {
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UnderConstruction from './UnderConstruction';
+import UnderConstruction from '../globalComponents/UnderConstruction';
 
 class SignIn extends Component {
 
