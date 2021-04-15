@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Placeholder from '../globalComponents/Placeholder'
+import CreateSupplyForm from './CreateSupplyForm';
 
 class EditSupplies extends Component {
 
@@ -20,6 +21,8 @@ class EditSupplies extends Component {
         console.log(this.supplyCategories)
     }
 
+    supplyCategories = []
+
     createSuppliesByCategory(){
         const suppliesByCategory = {"all": this.props.supplies}
         this.props.supplies.forEach(supply => {
@@ -32,7 +35,10 @@ class EditSupplies extends Component {
         return suppliesByCategory
     }
 
-    supplyCategories = []
+    selectSupply = (id) => {
+        let supply = this.props.supplies.find(sup => sup.id == id)
+        this.setState({ supplyInput: <CreateSupplyForm supply={supply}/> })
+    }
 
     render() {
         return (
@@ -49,9 +55,8 @@ class EditSupplies extends Component {
            
             <label>
                 Supplies: 
-                <select>
-                    <option>---</option>
-                    { this.state.suppliesByCategory[this.state.currentCategory].map(supply => <option value={supply}>{supply.name}</option>) }
+                <select onChange={event => this.selectSupply(event.target.value)}>
+                    { this.state.suppliesByCategory[this.state.currentCategory].map(supply => <option value={supply.id}>{supply.name}</option>) }
                 </select>
             </label>
 
