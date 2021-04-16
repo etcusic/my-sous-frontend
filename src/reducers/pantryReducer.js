@@ -1,4 +1,4 @@
-const pantryReducer = (state = [], action) => {
+const pantryReducer = (state = {}, action) => {
     switch(action.type){
         case "LOAD_PANTRY": 
             let pantry = action.payload
