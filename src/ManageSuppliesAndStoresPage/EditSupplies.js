@@ -9,7 +9,7 @@ class EditSupplies extends Component {
         super()
         this.state = {
             suppliesByCategory: {"all": []},
-            currentSupply: {},
+            currentSupply: this.emptySupply,
             currentCategory: "all",
             supplyInput: <Placeholder />
         }
@@ -23,6 +23,13 @@ class EditSupplies extends Component {
 
     supplyCategories = []
 
+    emptySupply = {
+        name: "",
+        category: "food",
+        sub_category: "---",         
+        unit: ""
+    }
+
     createSuppliesByCategory(){
         const suppliesByCategory = {"all": this.props.supplies}
         this.props.supplies.forEach(supply => {
@@ -35,9 +42,16 @@ class EditSupplies extends Component {
         return suppliesByCategory
     }
 
+    selectCategory = (cat) => {
+        this.setState({ currentCategory: cat })
+    }
+
     selectSupply = (id) => {
+        // can't get input to change - maybe do separate list of edited supplies with remove buttons??
         let supply = this.props.supplies.find(sup => sup.id == id)
-        this.setState({ supplyInput: <CreateSupplyForm supply={supply}/> })
+        console.log(supply)
+        console.log(this.state.currentSupply)
+        this.setState({ supplyInput: <CreateSupplyForm supply={ supply } /> })
     }
 
     render() {
@@ -47,7 +61,7 @@ class EditSupplies extends Component {
             
             <label>
                 Sub Categories: 
-                <select>
+                <select onChange={ event => this.selectCategory(event.target.value) }>
                     <option value="all">all</option>
                     { this.supplyCategories.map(cat => <option value={cat.name}>{cat}</option>) }
                 </select>
@@ -60,6 +74,7 @@ class EditSupplies extends Component {
                 </select>
             </label>
 
+            {/* <CreateSupplyForm supply={this.state.currentSupply} /> */}
             { this.state.supplyInput }
         </div>
         );

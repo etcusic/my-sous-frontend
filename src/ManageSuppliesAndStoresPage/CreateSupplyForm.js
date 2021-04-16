@@ -6,10 +6,10 @@ class CreateSupplyForm extends Component {
     constructor(props) {
       super(props);
       this.state = {                               
-          name: props.supply.name, //"",
-          category: props.supply.category, //"food",
-          sub_category: props.supply.sub_category, //"---",         
-          unit: props.supply.unit //""
+          name: props.supply.name, 
+          category: props.supply.category, 
+          sub_category: props.supply.sub_category,   
+          unit: props.supply.unit 
         };
   
         this.changeName = this.changeName.bind(this);
